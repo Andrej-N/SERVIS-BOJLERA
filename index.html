@@ -630,7 +630,6 @@ footer{background:var(--navy);color:#cdd9ec;padding:60px 0 110px}
         <h4>Kontakt</h4>
         <a data-tel href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-phone-human>060 / 000-00-00</span></a>
         <a href="https://maps.app.goo.gl/" data-maps style="margin-top:12px" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Batutova 9, 11000 Beograd</span></a>
-        <a data-email href="#" style="margin-top:12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg><span data-email-human>kontakt@servis-bojlera-beograd.rs</span></a>
         <li style="margin-top:14px;display:flex;gap:9px;align-items:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Radno vreme: 0-24, svaki dan</li>
       </div>
       <div>
@@ -665,7 +664,6 @@ footer{background:var(--navy);color:#cdd9ec;padding:60px 0 110px}
 const BIZ = {
   phone:      "+381613112073",                      // 061 311 20 73
   phoneHuman: "061 311 20 73",                      // kako se prikazuje
-  email:      "kontakt@servis-bojlera-beograd.rs",  // ← zameni pravim email-om (ili obriši red)
   mapsUrl:    "https://www.google.com/maps/search/?api=1&query=QFWX%2BMQ%20Beograd"  // Batutova 9 (plus kod)
 };
 
@@ -673,8 +671,6 @@ const BIZ = {
 document.querySelectorAll('[data-tel]').forEach(a => a.href = 'tel:' + BIZ.phone);
 document.querySelectorAll('[data-viber]').forEach(a => a.href = 'viber://chat?number=' + encodeURIComponent(BIZ.phone));
 document.querySelectorAll('[data-phone-human]').forEach(el => el.textContent = BIZ.phoneHuman);
-document.querySelectorAll('[data-email]').forEach(a => a.href = 'mailto:' + BIZ.email);
-document.querySelectorAll('[data-email-human]').forEach(el => el.textContent = BIZ.email);
 document.querySelectorAll('[data-maps]').forEach(a => a.href = BIZ.mapsUrl);
 document.getElementById('yr').textContent = new Date().getFullYear();
 
