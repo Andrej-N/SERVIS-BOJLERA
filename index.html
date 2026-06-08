@@ -88,6 +88,7 @@ body{
   margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
   color:var(--ink);background:var(--bg);line-height:1.6;
   font-size:16.5px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  overflow-x:hidden;width:100%;
 }
 h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.08;letter-spacing:-.02em;margin:0;color:var(--ink)}
 p{margin:0}
@@ -173,10 +174,38 @@ header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);
 .float-card .ic svg{width:21px;height:21px;color:#fff}
 .float-card b{font-family:'Sora';font-size:1.18rem;display:block;line-height:1.1}
 .float-card span{font-size:.78rem;color:var(--muted)}
+/* tablet / large phone */
 @media(max-width:880px){
-  .hero-grid{grid-template-columns:1fr;gap:40px;padding:40px 0 64px}
-  .hero-visual{max-width:420px;margin:0 auto}
-  .float-1{left:-8px}.float-2{right:-6px}
+  .hero-grid{grid-template-columns:1fr;gap:34px;padding:34px 0 56px;text-align:center}
+  .hero-copy{display:flex;flex-direction:column;align-items:center}
+  .hero .lead{margin-left:auto;margin-right:auto}
+  .hero-cta{justify-content:center}
+  .hero-trust{justify-content:center}
+  .hero-visual{max-width:380px;margin:0 auto;width:100%}
+  /* kartice unutar okvira slike — bez prelivanja preko ivice */
+  .float-1{top:12px;left:12px}
+  .float-2{bottom:12px;right:12px}
+}
+/* phone */
+@media(max-width:560px){
+  .wrap{padding:0 16px}
+  .hero-grid{padding:24px 0 44px;gap:28px}
+  .hero h1{font-size:clamp(1.95rem,8.4vw,2.6rem)}
+  .hero h1 br{display:none}
+  .hero .lead{font-size:1.04rem;margin:16px auto 24px}
+  .rating-inline{font-size:.82rem;padding:6px 13px 6px 11px;margin-bottom:18px}
+  .hero-cta{flex-direction:column;width:100%;gap:11px;margin-bottom:24px}
+  .hero-cta .btn{width:100%;justify-content:center}
+  .hero-trust{flex-direction:column;align-items:center;gap:11px;width:100%}
+  .hero-visual{max-width:330px}
+  .float-card{padding:11px 13px;border-radius:13px}
+  .float-card b{font-size:1.06rem}
+  .float-card .ic{width:36px;height:36px}
+}
+/* very small phone */
+@media(max-width:360px){
+  .hero h1{font-size:1.78rem}
+  .float-card span{font-size:.72rem}
 }
 
 /* ============================ BRAND STRIP ============================ */
