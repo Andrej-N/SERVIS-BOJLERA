@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="sr" translate="no">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--
+  ============================================================
+   SERVIS BOJLERA BEOGRAD — high-converting landing page
+   ------------------------------------------------------------
+   ⚠️  IZMENI SAMO OVO (jedno mesto za sve):  pogledaj <script> na dnu
+       -> const BIZ = { phone, phoneHuman, email, ... }
+       Telefon se automatski upisuje u SVE dugmiće i tel: linkove.
+  ============================================================
+-->
+
+<title>Servis Bojlera Beograd — Popravka bojlera za 60 min | 0-24, garancija</title>
+<meta name="description" content="Brza popravka bojlera u Beogradu. Majstor stiže za 60 minuta, dijagnostika na licu mesta, garancija na rad i delove. Radimo 0-24, svi modeli. Pozovite odmah." />
+<meta name="theme-color" content="#0a1f3c" />
+<meta name="robots" content="index, follow" />
+<link rel="canonical" href="https://servis-bojlera-beograd.rs/" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Servis Bojlera Beograd — Majstor stiže za 60 minuta" />
+<meta property="og:description" content="Popravka, ugradnja i čišćenje bojlera. 0-24, garancija na rad, fiksne cene bez skrivenih troškova." />
+<meta property="og:locale" content="sr_RS" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Local SEO: LocalBusiness structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Plumber",
+  "name": "Servis Bojlera Beograd",
+  "description": "Brza popravka, ugradnja i čišćenje bojlera u Beogradu. Dolazak isti dan, garancija na rad, dostupni 0-24.",
+  "telephone": "+381613112073",
+  "openingHours": "Mo-Su 00:00-23:59",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Batutova 9",
+    "addressLocality": "Beograd",
+    "postalCode": "11000",
+    "addressCountry": "RS"
+  },
+  "geo": { "@type": "GeoCoordinates", "latitude": 44.7966766, "longitude": 20.4994159 },
+  "areaServed": "Beograd",
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "60" }
+}
+</script>
+
+<style>
+/* ============================ TOKENS ============================ */
+:root{
+  --navy:#0a1f3c;
+  --navy-700:#0f2a52;
+  --blue:#1b5cff;
+  --blue-600:#1647d6;
+  --blue-50:#eef3ff;
+  --accent:#ff6a1a;        /* CTA / urgency */
+  --accent-600:#e85800;
+  --ink:#0c1726;
+  --muted:#56657b;
+  --line:#e4ecf5;
+  --bg:#ffffff;
+  --bg-soft:#f5f8fd;
+  --bg-cool:#eef3fb;
+  --white:#fff;
+  --ok:#16a34a;
+  --star:#ffb300;
+  --radius:16px;
+  --radius-lg:24px;
+  --shadow-sm:0 1px 2px rgba(12,23,38,.06), 0 4px 14px rgba(12,23,38,.05);
+  --shadow:0 12px 34px rgba(13,40,82,.10), 0 2px 8px rgba(13,40,82,.06);
+  --shadow-blue:0 18px 50px rgba(27,92,255,.22);
+  --shadow-accent:0 14px 30px rgba(255,106,26,.34);
+  --max:1180px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  margin:0;font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+  color:var(--ink);background:var(--bg);line-height:1.6;
+  font-size:16.5px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+h1,h2,h3,h4{font-family:'Sora',sans-serif;line-height:1.08;letter-spacing:-.02em;margin:0;color:var(--ink)}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+ul{margin:0;padding:0;list-style:none}
+.wrap{width:100%;max-width:var(--max);margin:0 auto;padding:0 22px}
+.eyebrow{font-family:'Sora';font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue-600)}
+.muted{color:var(--muted)}
+.sec{padding:88px 0}
+.sec-head{max-width:620px;margin-bottom:46px}
+.sec-head h2{font-size:clamp(1.9rem,4.4vw,2.85rem);font-weight:800;margin:14px 0 14px}
+.sec-head p{font-size:1.08rem;color:var(--muted)}
+.center{text-align:center;margin-left:auto;margin-right:auto}
+
+/* ============================ BUTTONS ============================ */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:'Sora';font-weight:700;
+  font-size:1.02rem;padding:15px 26px;border-radius:13px;cursor:pointer;border:0;
+  transition:transform .18s var(--ease),box-shadow .25s var(--ease),background .2s;white-space:nowrap}
+.btn svg{width:20px;height:20px;flex:none}
+.btn-call{background:var(--accent);color:#fff;box-shadow:var(--shadow-accent)}
+.btn-call:hover{background:var(--accent-600);transform:translateY(-2px);box-shadow:0 20px 40px rgba(255,106,26,.42)}
+.btn-call:active{transform:translateY(0) scale(.985)}
+.btn-ghost{background:#fff;color:var(--navy);border:1.5px solid var(--line);box-shadow:var(--shadow-sm)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue-600);transform:translateY(-2px)}
+.btn-ghost:active{transform:translateY(0) scale(.985)}
+.btn-blue{background:var(--blue);color:#fff;box-shadow:var(--shadow-blue)}
+.btn-blue:hover{background:var(--blue-600);transform:translateY(-2px)}
+.btn-blue:active{transform:translateY(0) scale(.985)}
+.pulse{position:relative}
+.pulse::after{content:"";position:absolute;inset:0;border-radius:13px;border:2px solid var(--accent);
+  animation:ring 2.4s var(--ease) infinite;pointer-events:none}
+@keyframes ring{0%{opacity:.7;transform:scale(1)}70%,100%{opacity:0;transform:scale(1.18)}}
+@media (prefers-reduced-motion:reduce){.pulse::after{animation:none}*{scroll-behavior:auto!important}}
+
+/* ============================ NAV ============================ */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:11px;font-family:'Sora';font-weight:800;font-size:1.16rem;color:var(--navy);letter-spacing:-.02em}
+.brand .mark{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;
+  background:linear-gradient(150deg,var(--blue),var(--navy));box-shadow:var(--shadow-blue);flex:none}
+.brand .mark svg{width:22px;height:22px;color:#fff}
+.brand small{display:block;font-family:'Inter';font-weight:500;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue-600);margin-top:-2px}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{font-weight:600;font-size:.96rem;color:var(--ink);opacity:.82;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--blue-600)}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-phone{display:flex;flex-direction:column;line-height:1.1;text-align:right}
+.nav-phone span{font-size:.7rem;color:var(--muted);font-weight:600}
+.nav-phone b{font-family:'Sora';font-size:1.06rem;color:var(--navy)}
+@media(max-width:920px){.nav-links{display:none}.nav-phone{display:none}}
+
+/* ============================ HERO ============================ */
+.hero{position:relative;overflow:hidden;background:
+  radial-gradient(900px 520px at 88% -8%,rgba(27,92,255,.10),transparent 60%),
+  radial-gradient(700px 480px at -6% 110%,rgba(255,106,26,.08),transparent 60%),
+  linear-gradient(180deg,#fff, var(--bg-soft))}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;padding:62px 0 78px}
+.hero h1{font-size:clamp(2.3rem,5.3vw,3.85rem);font-weight:800}
+.hero h1 .hl{color:var(--blue-600);position:relative}
+.hero h1 .hl::after{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.16em;background:rgba(255,106,26,.32);z-index:-1;border-radius:3px}
+.hero .lead{font-size:1.18rem;color:var(--muted);margin:22px 0 30px;max-width:540px}
+.rating-inline{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);
+  border-radius:100px;padding:7px 16px 7px 12px;box-shadow:var(--shadow-sm);margin-bottom:24px;font-weight:600;font-size:.92rem}
+.stars{color:var(--star);letter-spacing:1px}
+.hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:30px}
+.hero-trust{display:flex;gap:26px;flex-wrap:wrap}
+.hero-trust li{display:flex;align-items:center;gap:9px;font-weight:600;font-size:.94rem;color:var(--navy)}
+.hero-trust svg{width:21px;height:21px;color:var(--ok);flex:none}
+
+/* hero visual */
+.hero-visual{position:relative}
+.hero-photo{position:relative;border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow);
+  aspect-ratio:4/5;background:linear-gradient(150deg,var(--navy),var(--blue-600))}
+.hero-photo img{width:100%;height:100%;object-fit:cover}
+.float-card{position:absolute;background:#fff;border-radius:15px;box-shadow:var(--shadow);
+  padding:14px 16px;display:flex;align-items:center;gap:12px;border:1px solid var(--line)}
+.float-1{top:22px;left:-26px;animation:floaty 5s ease-in-out infinite}
+.float-2{bottom:24px;right:-22px;animation:floaty 5.6s ease-in-out infinite .6s}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.float-card .ic{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;flex:none}
+.float-card .ic svg{width:21px;height:21px;color:#fff}
+.float-card b{font-family:'Sora';font-size:1.18rem;display:block;line-height:1.1}
+.float-card span{font-size:.78rem;color:var(--muted)}
+@media(max-width:880px){
+  .hero-grid{grid-template-columns:1fr;gap:40px;padding:40px 0 64px}
+  .hero-visual{max-width:420px;margin:0 auto}
+  .float-1{left:-8px}.float-2{right:-6px}
+}
+
+/* ============================ BRAND STRIP ============================ */
+.strip{background:var(--navy);color:#fff;padding:30px 0}
+.strip-in{display:flex;align-items:center;justify-content:space-between;gap:30px;flex-wrap:wrap}
+.strip .lbl{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:#9fb6d8;font-weight:700;font-family:'Sora'}
+.brands{display:flex;gap:14px 30px;flex-wrap:wrap;align-items:center}
+.brands span{font-family:'Sora';font-weight:700;font-size:1.05rem;color:#cfe0ff;opacity:.82}
+
+/* ============================ STATS ============================ */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:-44px;position:relative;z-index:5}
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 22px;box-shadow:var(--shadow-sm)}
+.stat b{font-family:'Sora';font-weight:800;font-size:2.1rem;color:var(--navy);display:block;line-height:1}
+.stat .u{color:var(--accent)}
+.stat span{font-size:.92rem;color:var(--muted);margin-top:6px;display:block}
+@media(max-width:760px){.stats{grid-template-columns:repeat(2,1fr);margin-top:-30px}}
+
+/* ============================ SERVICES (bento) ============================ */
+.bento{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.svc{position:relative;border:1px solid var(--line);border-radius:var(--radius-lg);padding:30px;
+  background:#fff;overflow:hidden;transition:transform .25s var(--ease),box-shadow .25s var(--ease),border-color .25s}
+.svc:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:#cfe0ff}
+.svc.feat{background:linear-gradient(160deg,var(--navy),var(--navy-700));color:#fff;border-color:transparent}
+.svc.feat h3,.svc.feat .price{color:#fff}
+.svc.feat .muted{color:#a9c1e6}
+.svc .ic{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;margin-bottom:18px;
+  background:var(--blue-50);box-shadow:inset 0 0 0 1px rgba(27,92,255,.12)}
+.svc .ic svg{width:26px;height:26px;color:var(--blue-600)}
+.svc.feat .ic{background:rgba(255,255,255,.12)}.svc.feat .ic svg{color:#fff}
+.svc h3{font-size:1.32rem;font-weight:700;margin-bottom:10px}
+.svc p{font-size:.98rem;color:var(--muted);margin-bottom:18px}
+.svc ul li{display:flex;gap:9px;align-items:flex-start;font-size:.92rem;margin-bottom:8px;font-weight:500}
+.svc ul li svg{width:18px;height:18px;color:var(--ok);flex:none;margin-top:3px}
+.svc.feat ul li svg{color:#5fd08a}
+.price{font-family:'Sora';font-weight:700;font-size:1.02rem;color:var(--navy);margin-top:8px}
+.price b{font-size:1.35rem}
+@media(max-width:760px){.bento{grid-template-columns:1fr}}
+
+/* ============================ WHY ============================ */
+.why{background:var(--bg-soft)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.why-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow-sm)}
+.why-card .ic{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;margin-bottom:16px;
+  background:linear-gradient(150deg,var(--blue),var(--navy))}
+.why-card .ic svg{width:23px;height:23px;color:#fff}
+.why-card h3{font-size:1.12rem;font-weight:700;margin-bottom:8px}
+.why-card p{font-size:.95rem;color:var(--muted)}
+@media(max-width:820px){.why-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.why-grid{grid-template-columns:1fr}}
+
+/* ============================ STEPS ============================ */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
+.step{position:relative;padding-top:14px}
+.step .n{font-family:'Sora';font-weight:800;font-size:1.05rem;width:46px;height:46px;border-radius:50%;
+  display:grid;place-items:center;background:var(--accent);color:#fff;box-shadow:var(--shadow-accent);margin-bottom:18px}
+.step h3{font-size:1.22rem;font-weight:700;margin-bottom:8px}
+.step p{color:var(--muted);font-size:.98rem}
+.step:not(:last-child)::after{content:"";position:absolute;top:36px;left:60px;right:-12px;height:2px;
+  background:repeating-linear-gradient(90deg,var(--line) 0 8px,transparent 8px 16px)}
+@media(max-width:760px){.steps{grid-template-columns:1fr}.step::after{display:none}}
+
+/* ============================ PRICES ============================ */
+.price-wrap{border:1px solid var(--line);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-sm);background:#fff}
+.price-row{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 26px;border-bottom:1px solid var(--line)}
+.price-row:last-child{border-bottom:0}
+.price-row:nth-child(even){background:var(--bg-soft)}
+.price-row .nm{font-weight:600}
+.price-row .nm small{display:block;color:var(--muted);font-weight:400;font-size:.86rem;margin-top:2px}
+.price-row .val{font-family:'Sora';font-weight:700;color:var(--navy);white-space:nowrap;font-size:1.05rem}
+.price-row .val em{font-style:normal;color:var(--muted);font-weight:500;font-size:.82rem}
+.price-note{display:flex;gap:10px;align-items:flex-start;margin-top:18px;color:var(--muted);font-size:.9rem}
+.price-note svg{width:18px;height:18px;color:var(--blue);flex:none;margin-top:3px}
+
+/* ============================ REVIEWS ============================ */
+.reviews{background:var(--navy);color:#fff;position:relative;overflow:hidden}
+.reviews::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(600px 400px at 90% 0,rgba(27,92,255,.25),transparent 60%),
+  radial-gradient(500px 360px at 0 100%,rgba(255,106,26,.14),transparent 60%);pointer-events:none}
+.reviews .sec-head h2,.reviews .eyebrow{color:#fff}
+.reviews .eyebrow{color:#7fa8ff}
+.reviews .sec-head p{color:#a9c1e6}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}
+.rev{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius);
+  padding:24px;backdrop-filter:blur(6px)}
+.rev .stars{font-size:1rem;margin-bottom:12px}
+.rev p{font-size:.98rem;color:#dce7f7;margin-bottom:18px}
+.rev .who{display:flex;align-items:center;gap:12px}
+.rev .av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-family:'Sora';font-weight:700;
+  background:linear-gradient(150deg,var(--blue),var(--accent));color:#fff;flex:none}
+.rev .who b{display:block;font-size:.96rem}
+.rev .who span{font-size:.8rem;color:#94aacb}
+.gbadge{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--ink);border-radius:100px;
+  padding:9px 18px;font-weight:600;margin-top:36px;box-shadow:var(--shadow)}
+.gbadge .stars{font-size:1rem}
+@media(max-width:820px){.rev-grid{grid-template-columns:1fr}}
+
+/* ============================ AREA ============================ */
+.area-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px}
+.chips span{background:#fff;border:1px solid var(--line);border-radius:100px;padding:8px 16px;font-weight:600;
+  font-size:.9rem;box-shadow:var(--shadow-sm)}
+.chips span::before{content:"📍 ";font-size:.8em}
+.area-card{background:linear-gradient(160deg,var(--blue),var(--navy));color:#fff;border-radius:var(--radius-lg);
+  padding:34px;box-shadow:var(--shadow-blue)}
+.area-card h3{color:#fff;font-size:1.5rem;margin-bottom:10px}
+.area-card p{color:#cfe0ff;margin-bottom:22px}
+.area-card .big{font-family:'Sora';font-weight:800;font-size:1.9rem;margin:6px 0 2px}
+@media(max-width:820px){.area-grid{grid-template-columns:1fr;gap:30px}}
+
+/* ============================ FAQ ============================ */
+.faq{max-width:820px;margin:0 auto}
+.qa{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;background:#fff;overflow:hidden;transition:box-shadow .2s}
+.qa[open]{box-shadow:var(--shadow-sm);border-color:#cfe0ff}
+.qa summary{cursor:pointer;list-style:none;padding:20px 24px;font-family:'Sora';font-weight:600;font-size:1.06rem;
+  display:flex;align-items:center;justify-content:space-between;gap:16px}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary .pm{width:26px;height:26px;flex:none;position:relative;transition:transform .25s var(--ease)}
+.qa summary .pm::before,.qa summary .pm::after{content:"";position:absolute;background:var(--blue);border-radius:2px}
+.qa summary .pm::before{top:12px;left:5px;right:5px;height:2.5px}
+.qa summary .pm::after{left:12px;top:5px;bottom:5px;width:2.5px;transition:transform .25s var(--ease)}
+.qa[open] summary .pm::after{transform:scaleY(0)}
+.qa .a{padding:0 24px 22px;color:var(--muted);font-size:.98rem}
+
+/* ============================ FINAL CTA ============================ */
+.final{background:linear-gradient(150deg,var(--accent),#ff8c42);color:#fff;border-radius:28px;
+  padding:54px 44px;text-align:center;position:relative;overflow:hidden;box-shadow:var(--shadow-accent)}
+.final::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(420px 280px at 12% 0,rgba(255,255,255,.22),transparent 55%);pointer-events:none}
+.final h2{color:#fff;font-size:clamp(1.8rem,4.2vw,2.7rem);font-weight:800;position:relative}
+.final p{color:rgba(255,255,255,.92);font-size:1.12rem;margin:16px auto 28px;max-width:560px;position:relative}
+.final .btn-white{background:#fff;color:var(--accent-600);box-shadow:0 16px 36px rgba(0,0,0,.18);position:relative}
+.final .btn-white:hover{transform:translateY(-2px)}
+.final .sub{margin-top:16px;font-size:.92rem;color:rgba(255,255,255,.9);position:relative}
+
+/* ============================ FOOTER ============================ */
+footer{background:var(--navy);color:#cdd9ec;padding:60px 0 110px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.foot-grid .brand{color:#fff;margin-bottom:16px}
+.foot-grid p{color:#9fb2cf;font-size:.95rem;max-width:320px}
+.foot-grid h4{color:#fff;font-size:.82rem;letter-spacing:.12em;text-transform:uppercase;margin-bottom:16px;font-weight:700}
+.foot-grid a,.foot-grid li{color:#9fb2cf;font-size:.95rem;margin-bottom:10px;display:block;transition:color .2s}
+.foot-grid a:hover{color:#fff}
+.foot-contact a{display:flex;align-items:center;gap:9px;font-weight:600;color:#fff}
+.foot-contact svg{width:18px;height:18px;color:var(--accent)}
+.foot-bot{border-top:1px solid rgba(255,255,255,.12);padding-top:24px;display:flex;justify-content:space-between;
+  gap:14px;flex-wrap:wrap;color:#7d92b3;font-size:.86rem}
+@media(max-width:760px){.foot-grid{grid-template-columns:1fr;gap:30px}}
+
+/* ============================ MOBILE STICKY CALL BAR ============================ */
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:60;display:none;gap:10px;padding:11px 14px;
+  background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-top:1px solid var(--line);
+  box-shadow:0 -8px 24px rgba(12,23,38,.10)}
+.mobile-bar .btn{flex:1;justify-content:center;padding:14px}
+.mobile-bar .btn-ghost{flex:0 0 auto;padding:14px 16px}
+@media(max-width:920px){.mobile-bar{display:flex}footer{padding-bottom:120px}}
+
+/* ============================ REVEAL ANIM ============================ */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+</style>
+</head>
+
+<body>
+
+<!-- ============================ NAV ============================ -->
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="brand" aria-label="Servis Bojlera Beograd — početna">
+      <span class="mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+      </span>
+      <span>Servis Bojlera<small>Beograd · 0-24</small></span>
+    </a>
+    <nav class="nav-links" aria-label="Glavna navigacija">
+      <a href="#usluge">Usluge</a>
+      <a href="#zasto">Zašto mi</a>
+      <a href="#cene">Cene</a>
+      <a href="#recenzije">Recenzije</a>
+      <a href="#faq">Pitanja</a>
+    </nav>
+    <div class="nav-cta">
+      <div class="nav-phone">
+        <span>Pozovite odmah</span>
+        <b data-phone-human>060 / 000-00-00</b>
+      </div>
+      <a class="btn btn-call" data-tel href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Pozovi</a>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <div class="rating-inline reveal">
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span>4.9/5 · zadovoljni klijenti širom Beograda</span>
+      </div>
+      <h1 class="reveal">Kvar na bojleru? <span class="hl">Majstor stiže<br>za 60 minuta.</span></h1>
+      <p class="lead reveal">Hladna voda, curenje ili je iskočio osigurač? Dolazimo brzo, dijagnostiku radimo na licu mesta, a popravku završavamo isti dan — uz <b>garanciju na rad i delove</b>.</p>
+      <div class="hero-cta reveal">
+        <a class="btn btn-call pulse" data-tel href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Pozovi <span data-phone-human>060 / 000-00-00</span></a>
+        <a class="btn btn-ghost" data-viber href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>Viber / WhatsApp</a>
+      </div>
+      <ul class="hero-trust reveal">
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Dostupni 0-24, i vikendom</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Garancija na izvršen rad</li>
+        <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Bez skrivenih troškova</li>
+      </ul>
+    </div>
+
+    <div class="hero-visual reveal">
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?auto=format&fit=crop&w=900&q=80"
+             alt="Sertifikovani majstor servisira bojler"
+             loading="eager"
+             onerror="this.style.display='none'">
+      </div>
+      <div class="float-card float-1">
+        <span class="ic" style="background:linear-gradient(150deg,var(--blue),var(--navy))" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </span>
+        <div><b>~60 min</b><span>prosečan dolazak</span></div>
+      </div>
+      <div class="float-card float-2">
+        <span class="ic" style="background:linear-gradient(150deg,var(--ok),#0f8a3c)" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><path d="M12 3a9 9 0 1 0 9 9 9 9 0 0 0-9-9z"/></svg>
+        </span>
+        <div><b>Garancija</b><span>na rad i delove</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ STATS ============================ -->
+<div class="wrap">
+  <div class="stats">
+    <div class="stat reveal"><b data-count="15">0</b><b class="u" style="display:inline">+</b><span>godina iskustva</span></div>
+    <div class="stat reveal"><b data-count="12000">0</b><b class="u" style="display:inline">+</b><span>popravljenih bojlera</span></div>
+    <div class="stat reveal"><b>4.9</b><b class="u" style="display:inline">★</b><span>prosečna ocena klijenata</span></div>
+    <div class="stat reveal"><b>0-24</b><span>dostupni svaki dan</span></div>
+  </div>
+</div>
+
+<!-- ============================ BRAND STRIP ============================ -->
+<div class="strip">
+  <div class="wrap strip-in">
+    <span class="lbl">Servisiramo sve modele</span>
+    <div class="brands" aria-label="Modeli bojlera koje servisiramo">
+      <span>Gorenje</span><span>Tiki</span><span>Bosch</span><span>Ariston</span>
+      <span>Metalac</span><span>Magnohrom</span><span>Vaillant</span><span>Elektromont</span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ SERVICES ============================ -->
+<section class="sec" id="usluge">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Naše usluge</span>
+      <h2>Sve za vaš bojler — na jednom mestu</h2>
+      <p>Od najmanjeg kvara do kompletne zamene. Izlazimo na teren sa rezervnim delovima, pa popravku najčešće završavamo iz prve.</p>
+    </div>
+    <div class="bento">
+      <article class="svc feat reveal">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+        <h3>Popravka bojlera</h3>
+        <p class="muted">Najčešći razlog poziva. Otkrivamo kvar na licu mesta i odmah ga rešavamo.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Zamena grejača i termostata</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Curenje, kapanje i zaptivanje</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Bojler ne greje / iskače osigurač</li>
+        </ul>
+        <div class="price">od <b>2.500</b> din <span class="muted">· delovi po dogovoru</span></div>
+      </article>
+
+      <article class="svc reveal">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v6m0 0 3-3m-3 3L9 5"/><rect x="4" y="8" width="16" height="14" rx="3"/><path d="M9 22v-4h6v4"/></svg></span>
+        <h3>Ugradnja i zamena</h3>
+        <p>Montaža novog ili zamena starog bojlera, sa povezivanjem na vodu i struju po propisima.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Demontaža starog uređaja</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Savet pri izboru novog bojlera</li>
+        </ul>
+        <div class="price">od <b>3.000</b> din</div>
+      </article>
+
+      <article class="svc reveal">
+        <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4.97 0 8-3.13 8-7 0-4-4-9-8-13C8 6 4 11 4 15c0 3.87 3.03 7 8 7z"/></svg></span>
+        <h3>Čišćenje kamenca</h3>
+        <p>Redovno čišćenje kazana i grejača produžava vek bojlera i smanjuje potrošnju struje.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Pražnjenje i odmuljivanje</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Zamena magnezijumske anode</li>
+        </ul>
+        <div class="price">od <b>2.500</b> din</div>
+      </article>
+
+      <article class="svc reveal" style="grid-column:1/-1;display:flex;flex-wrap:wrap;align-items:center;gap:24px;justify-content:space-between;background:var(--bg-cool);border-color:#cfe0ff">
+        <div style="flex:1;min-width:260px">
+          <span class="ic" aria-hidden="true" style="background:var(--accent);box-shadow:var(--shadow-accent)"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></span>
+          <h3>Hitne intervencije 0-24</h3>
+          <p>Pukao bojler usred noći ili vikendom? Zovite u bilo koje doba — izlazimo i van radnog vremena, po celom Beogradu.</p>
+        </div>
+        <a class="btn btn-call" data-tel href="#" style="flex:none"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Hitno — pozovi sada</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ WHY ============================ -->
+<section class="sec why" id="zasto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Zašto baš mi</span>
+      <h2>Razlozi zbog kojih nas Beograđani zovu ponovo</h2>
+      <p>Pošteno, brzo i bez iznenađenja na računu. Cenu znate pre nego što počnemo.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></span><h3>Brz dolazak</h3><p>Najčešće izlazimo u roku od sat vremena od poziva, na svaku gradsku adresu.</p></div>
+      <div class="why-card reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></span><h3>Garancija na rad</h3><p>Za svaku popravku i ugrađen deo dajemo pisanu garanciju. Ako se vrati kvar — vraćamo se i mi.</p></div>
+      <div class="why-card reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span><h3>Fiksna, jasna cena</h3><p>Cenu kažemo unapred, posle dijagnostike. Bez skrivenih troškova i naknadnih „dopuna".</p></div>
+      <div class="why-card reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span><h3>Originalni delovi</h3><p>Ugrađujemo proverene rezervne delove za sve modele — grejače, termostate, anode i zaptivke.</p></div>
+      <div class="why-card reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span><h3>Iskusni majstori</h3><p>Tim sa preko 15 godina prakse na terenu. Uredni, ljubazni i tačni na dogovoreno vreme.</p></div>
+      <div class="why-card reveal"><span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span><h3>Plaćanje kako vama odgovara</h3><p>Gotovina ili kartica na licu mesta, uz račun. Za firme izdajemo i fakturu.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ STEPS ============================ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Kako funkcioniše</span>
+      <h2>Od poziva do tople vode — u 3 koraka</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="n">1</div><h3>Pozovete nas</h3><p>Opišite kvar telefonom ili putem Vibera. Odmah procenjujemo problem i dogovaramo termin dolaska.</p></div>
+      <div class="step reveal"><div class="n">2</div><h3>Dijagnostika na licu mesta</h3><p>Majstor dolazi, utvrđuje uzrok kvara i kaže vam tačnu cenu pre nego što krene sa radom.</p></div>
+      <div class="step reveal"><div class="n">3</div><h3>Popravka + garancija</h3><p>Rešavamo kvar isti dan kad god je moguće. Dobijate račun i garanciju na izvršen rad.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ PRICES ============================ -->
+<section class="sec why" id="cene">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Cenovnik</span>
+      <h2>Okvirne cene, bez skrivenih troškova</h2>
+      <p>Konačnu cenu uvek potvrđujemo posle dijagnostike na licu mesta — pre nego što počnemo sa radom.</p>
+    </div>
+    <div class="price-wrap reveal">
+      <div class="price-row"><div class="nm">Izlazak i dijagnostika kvara<small>Na teritoriji Beograda</small></div><div class="val">od 1.500 din</div></div>
+      <div class="price-row"><div class="nm">Zamena grejača<small>Cena dela zavisi od modela bojlera</small></div><div class="val">od 2.500 din <em>+ deo</em></div></div>
+      <div class="price-row"><div class="nm">Zamena termostata</div><div class="val">od 2.500 din <em>+ deo</em></div></div>
+      <div class="price-row"><div class="nm">Čišćenje kamenca + anoda<small>Pražnjenje, odmuljivanje, zamena anode</small></div><div class="val">od 2.500 din</div></div>
+      <div class="price-row"><div class="nm">Ugradnja / zamena bojlera</div><div class="val">od 3.000 din</div></div>
+      <div class="price-row"><div class="nm">Hitna intervencija (noć/vikend)</div><div class="val">po dogovoru</div></div>
+    </div>
+    <p class="price-note reveal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg> Cene su informativne i mogu da variraju u zavisnosti od modela bojlera i obima posla. Tačnu cenu saznajete pre početka rada — bez obaveze.</p>
+  </div>
+</section>
+
+<!-- ============================ REVIEWS ============================ -->
+<section class="sec reviews" id="recenzije">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Recenzije klijenata</span>
+      <h2>Ono što kažu naši zadovoljni klijenti</h2>
+      <p>Ocena 4.9 na osnovu poziva sa Google mape i preporuka iz prve ruke.</p>
+    </div>
+    <div class="rev-grid">
+      <article class="rev reveal"><div class="stars" aria-hidden="true">★★★★★</div><p>„Bojler procurio uveče, zvala sam i majstor je došao za pola sata. Sve sredio na licu mesta i objasnio šta je bio kvar. Korektno i brzo."</p><div class="who"><span class="av" aria-hidden="true">JM</span><div><b>Jelena M.</b><span>Zvezdara</span></div></div></article>
+      <article class="rev reveal"><div class="stars" aria-hidden="true">★★★★★</div><p>„Zamena grejača i čišćenje kamenca, sve gotovo za sat vremena. Cena tačno kako su rekli telefonom, bez naknadnih troškova. Preporuka."</p><div class="who"><span class="av" aria-hidden="true">SP</span><div><b>Stefan P.</b><span>Novi Beograd</span></div></div></article>
+      <article class="rev reveal"><div class="stars" aria-hidden="true">★★★★★</div><p>„Profesionalno od poziva do računa. Stari bojler zamenili novim, sve čisto i uredno. Ljubazan majstor, dao i garanciju. Hvala!"</p><div class="who"><span class="av" aria-hidden="true">MN</span><div><b>Milica N.</b><span>Vračar</span></div></div></article>
+    </div>
+    <a class="gbadge reveal" data-maps href="#" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="#4285F4" d="M22.5 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.9a5 5 0 0 1-2.2 3.3v2.7h3.6c2.1-2 3.2-4.9 3.2-7.8z"/><path fill="#34A853" d="M12 23c2.9 0 5.4-1 7.2-2.6l-3.6-2.7c-1 .7-2.3 1-3.6 1-2.8 0-5.1-1.9-6-4.4H2.3v2.8A11 11 0 0 0 12 23z"/><path fill="#FBBC05" d="M6 14.3a6.6 6.6 0 0 1 0-4.2V7.3H2.3a11 11 0 0 0 0 9.8L6 14.3z"/><path fill="#EA4335" d="M12 5.5c1.6 0 3 .5 4.1 1.6l3.1-3.1A11 11 0 0 0 2.3 7.3L6 10.1c.9-2.6 3.2-4.6 6-4.6z"/></svg>
+      <span class="stars" aria-hidden="true">★★★★★</span>
+      <b>4.9</b> · Pogledajte recenzije na Google mapi
+    </a>
+  </div>
+</section>
+
+<!-- ============================ AREA ============================ -->
+<section class="sec">
+  <div class="wrap area-grid">
+    <div class="reveal">
+      <span class="eyebrow">Područje rada</span>
+      <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;margin:14px 0">Izlazimo na celu teritoriju Beograda</h2>
+      <p class="muted">Pokrivamo sve gradske opštine i prigradska naselja. Gde god da ste — javite se, dogovorićemo najbrži mogući dolazak.</p>
+      <div class="chips" aria-label="Opštine koje pokrivamo">
+        <span>Vračar</span><span>Zvezdara</span><span>Novi Beograd</span><span>Stari grad</span>
+        <span>Voždovac</span><span>Palilula</span><span>Savski venac</span><span>Čukarica</span>
+        <span>Rakovica</span><span>Zemun</span><span>Mirijevo</span><span>Banovo brdo</span>
+      </div>
+    </div>
+    <div class="area-card reveal">
+      <h3>Trebate majstora odmah?</h3>
+      <p>Dostupni smo svaki dan u nedelji, danju i noću.</p>
+      <div class="big" data-phone-human>060 / 000-00-00</div>
+      <p style="margin-top:4px;margin-bottom:22px">Radno vreme: <b style="color:#fff">0-24</b></p>
+      <a class="btn btn-white" data-tel href="#" style="background:#fff;color:var(--blue-600);width:100%;justify-content:center"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Pozovi besplatno</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FAQ ============================ -->
+<section class="sec why" id="faq">
+  <div class="wrap">
+    <div class="sec-head center reveal">
+      <span class="eyebrow">Česta pitanja</span>
+      <h2>Sve što vas zanima pre poziva</h2>
+    </div>
+    <div class="faq">
+      <details class="qa reveal"><summary>Da li dolazite isti dan?<span class="pm"></span></summary><div class="a">Da. U najvećem broju slučajeva izlazimo u roku od sat vremena od poziva, a popravku završavamo istog dana. Za hitne kvarove dostupni smo 0-24, uključujući vikend i praznike.</div></details>
+      <details class="qa reveal"><summary>Koliko košta izlazak majstora?<span class="pm"></span></summary><div class="a">Izlazak i dijagnostika na teritoriji Beograda počinju od 1.500 dinara. Ako se odlučite za popravku kod nas, dijagnostiku po pravilu uračunavamo u cenu radova. Tačnu cenu uvek kažemo pre početka rada.</div></details>
+      <details class="qa reveal"><summary>Dajete li garanciju na popravku?<span class="pm"></span></summary><div class="a">Da, na svaki izvršen rad i ugrađen deo dajemo pisanu garanciju. Ukoliko se isti kvar ponovi u garantnom roku, izlazak i otklanjanje su o našem trošku.</div></details>
+      <details class="qa reveal"><summary>Koje modele bojlera servisirate?<span class="pm"></span></summary><div class="a">Servisiramo sve tipove i proizvođače — Gorenje, Tiki, Bosch, Ariston, Metalac, Magnohrom, Vaillant i druge. Radimo na električnim, protočnim i akumulacionim bojlerima.</div></details>
+      <details class="qa reveal"><summary>Radite li vikendom i noću?<span class="pm"></span></summary><div class="a">Da, dostupni smo 0-24 svakog dana. Za intervencije van standardnog radnog vremena cenu dogovaramo prilikom poziva, jasno i unapred.</div></details>
+      <details class="qa reveal"><summary>Kako mogu da platim?<span class="pm"></span></summary><div class="a">Plaćanje je moguće gotovinom ili karticom na licu mesta, uz račun. Za pravna lica izdajemo fakturu.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FINAL CTA ============================ -->
+<section class="sec">
+  <div class="wrap">
+    <div class="final reveal">
+      <h2>Ne čekajte da kvar postane veći</h2>
+      <p>Jedan poziv i vaš bojler ponovo radi. Brzo, pošteno i uz garanciju — svaki dan, 0-24.</p>
+      <a class="btn btn-white" data-tel href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Pozovi <span data-phone-human>060 / 000-00-00</span></a>
+      <div class="sub">Prosečan dolazak ~60 min · Garancija na rad · Bez skrivenih troškova</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="brand">
+          <span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+          <span>Servis Bojlera<small>Beograd · 0-24</small></span>
+        </div>
+        <p>Brza i pouzdana popravka, ugradnja i čišćenje bojlera na teritoriji celog Beograda. Garancija na rad, fiksne cene, dolazak isti dan.</p>
+      </div>
+      <div class="foot-contact">
+        <h4>Kontakt</h4>
+        <a data-tel href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-phone-human>060 / 000-00-00</span></a>
+        <a href="https://maps.app.goo.gl/" data-maps style="margin-top:12px" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>Batutova 9, 11000 Beograd</span></a>
+        <a data-email href="#" style="margin-top:12px"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/></svg><span data-email-human>kontakt@servis-bojlera-beograd.rs</span></a>
+        <li style="margin-top:14px;display:flex;gap:9px;align-items:center"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Radno vreme: 0-24, svaki dan</li>
+      </div>
+      <div>
+        <h4>Usluge</h4>
+        <a href="#usluge">Popravka bojlera</a>
+        <a href="#usluge">Ugradnja i zamena</a>
+        <a href="#usluge">Čišćenje kamenca</a>
+        <a href="#usluge">Hitne intervencije 0-24</a>
+        <a href="#cene">Cenovnik</a>
+      </div>
+    </div>
+    <div class="foot-bot">
+      <span>© <span id="yr"></span> Servis Bojlera Beograd. Sva prava zadržana.</span>
+      <span>Popravka bojlera · Beograd i okolina</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ============================ MOBILE STICKY CALL BAR ============================ -->
+<div class="mobile-bar">
+  <a class="btn btn-call" data-tel href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>Pozovi odmah</a>
+  <a class="btn btn-ghost" data-viber href="#" aria-label="Viber"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></a>
+</div>
+
+<script>
+/* ================================================================
+   ⚙️  KONFIGURACIJA — IZMENI SAMO OVE LINIJE
+   ----------------------------------------------------------------
+   phone       = broj u međunarodnom formatu, BEZ razmaka (za tel:/viber)
+   phoneHuman  = kako se broj prikazuje na sajtu
+   ================================================================ */
+const BIZ = {
+  phone:      "+381613112073",                      // 061 311 20 73
+  phoneHuman: "061 311 20 73",                      // kako se prikazuje
+  email:      "kontakt@servis-bojlera-beograd.rs",  // ← zameni pravim email-om (ili obriši red)
+  mapsUrl:    "https://www.google.com/maps/search/?api=1&query=QFWX%2BMQ%20Beograd"  // Batutova 9 (plus kod)
+};
+
+// — primeni svuda automatski —
+document.querySelectorAll('[data-tel]').forEach(a => a.href = 'tel:' + BIZ.phone);
+document.querySelectorAll('[data-viber]').forEach(a => a.href = 'viber://chat?number=' + encodeURIComponent(BIZ.phone));
+document.querySelectorAll('[data-phone-human]').forEach(el => el.textContent = BIZ.phoneHuman);
+document.querySelectorAll('[data-email]').forEach(a => a.href = 'mailto:' + BIZ.email);
+document.querySelectorAll('[data-email-human]').forEach(el => el.textContent = BIZ.email);
+document.querySelectorAll('[data-maps]').forEach(a => a.href = BIZ.mapsUrl);
+document.getElementById('yr').textContent = new Date().getFullYear();
+
+// — scroll reveal (IntersectionObserver) —
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+}, { threshold: .12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal').forEach((el,i) => {
+  el.style.transitionDelay = (Math.min(i,6) * 60) + 'ms';
+  io.observe(el);
+});
+
+// — count-up za statistiku —
+const fmt = n => n >= 1000 ? Math.round(n).toLocaleString('sr-RS') : Math.round(n);
+const counters = document.querySelectorAll('[data-count]');
+const co = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target, target = +el.dataset.count; let cur = 0;
+    const dur = 1300, t0 = performance.now();
+    const tick = (t) => {
+      const p = Math.min((t - t0) / dur, 1);
+      const ease = 1 - Math.pow(1 - p, 3);
+      el.textContent = fmt(target * ease);
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+    co.unobserve(el);
+  });
+}, { threshold: .6 });
+counters.forEach(c => co.observe(c));
+</script>
+</body>
+</html>
